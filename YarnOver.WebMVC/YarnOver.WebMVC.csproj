@@ -197,9 +197,27 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\YarnController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808161935110_database.cs" />
+    <Compile Include="Migrations\201808161935110_database.Designer.cs">
+      <DependentUpon>201808161935110_database.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808161942015_update.cs" />
+    <Compile Include="Migrations\201808161942015_update.Designer.cs">
+      <DependentUpon>201808161942015_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808161948003_add-migraton Update.cs" />
+    <Compile Include="Migrations\201808161948003_add-migraton Update.Designer.cs">
+      <DependentUpon>201808161948003_add-migraton Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808161949588_newType.cs" />
+    <Compile Include="Migrations\201808161949588_newType.Designer.cs">
+      <DependentUpon>201808161949588_newType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -265,6 +283,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Yarn\Index.cshtml" />
+    <Content Include="Views\Yarn\Create.cshtml" />
+    <Content Include="Views\Yarn\Details.cshtml" />
+    <Content Include="Views\Yarn\Edit.cshtml" />
+    <Content Include="Views\Yarn\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -281,6 +304,38 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YarnOver.Contracts\YarnOver.Contracts.csproj">
+      <Project>{42c0785d-1833-43a2-aa97-17f10a5947df}</Project>
+      <Name>YarnOver.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YarnOver.Data\YarnOver.Data.csproj">
+      <Project>{34b554c6-a9a6-4598-9003-c4650727c5d3}</Project>
+      <Name>YarnOver.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YarnOver.Models\YarnOver.Models.csproj">
+      <Project>{b468fbc8-97a3-4f4f-b666-1e93811ae342}</Project>
+      <Name>YarnOver.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YarnOver.Services\YarnOver.Services.csproj">
+      <Project>{3F9C5FE5-8562-4DAF-B596-0546C5B67E31}</Project>
+      <Name>YarnOver.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201808161935110_database.resx">
+      <DependentUpon>201808161935110_database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808161942015_update.resx">
+      <DependentUpon>201808161942015_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808161948003_add-migraton Update.resx">
+      <DependentUpon>201808161948003_add-migraton Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808161949588_newType.resx">
+      <DependentUpon>201808161949588_newType.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

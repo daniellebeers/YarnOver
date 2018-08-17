@@ -1,0 +1,81 @@
+﻿@model YarnOver.Models.YarnDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>YarnDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.YarnId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YarnId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Color)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Manufacturer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Manufacturer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalYardage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalYardage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalWeight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalWeight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fiber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fiber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.WherePurchased)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WherePurchased)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.YarnId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
