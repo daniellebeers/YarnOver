@@ -53,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HookCreate.cs" />
+    <Compile Include="HookListItem.cs" />
     <Compile Include="YarnCreate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="YarnDetail.cs" />

@@ -196,6 +196,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HookController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\YarnController.cs" />
     <Compile Include="Global.asax.cs">
@@ -288,6 +289,8 @@
     <Content Include="Views\Yarn\Details.cshtml" />
     <Content Include="Views\Yarn\Edit.cshtml" />
     <Content Include="Views\Yarn\Delete.cshtml" />
+    <Content Include="Views\Hook\Index.cshtml" />
+    <Content Include="Views\Hook\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -67,6 +67,10 @@
     <Compile Include="Migrations\201808161956429_add-migration yarnAdd.Designer.cs">
       <DependentUpon>201808161956429_add-migration yarnAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808171529414_hook.cs" />
+    <Compile Include="Migrations\201808171529414_hook.Designer.cs">
+      <DependentUpon>201808171529414_hook.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Yarn.cs" />
@@ -84,6 +88,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808161956429_add-migration yarnAdd.resx">
       <DependentUpon>201808161956429_add-migration yarnAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808171529414_hook.resx">
+      <DependentUpon>201808171529414_hook.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
