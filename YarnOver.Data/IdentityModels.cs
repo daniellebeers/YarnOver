@@ -46,6 +46,9 @@ namespace YarnOver.Data
         public DbSet<Yarn> Yarns { get; set; }
         public DbSet<Hook> Hooks { get; set; }
 
+        public DbSet<Project> Projects { get; set; }
+
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder

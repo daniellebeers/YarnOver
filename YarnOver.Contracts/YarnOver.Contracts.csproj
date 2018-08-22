@@ -53,11 +53,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IYarnService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YarnOver.Data\YarnOver.Data.csproj">
+      <Project>{34b554c6-a9a6-4598-9003-c4650727c5d3}</Project>
+      <Name>YarnOver.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YarnOver.Models\YarnOver.Models.csproj">
+      <Project>{b468fbc8-97a3-4f4f-b666-1e93811ae342}</Project>
+      <Name>YarnOver.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

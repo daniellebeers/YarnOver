@@ -1,0 +1,60 @@
+﻿@model YarnOver.Models.HookDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>HookDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HookId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HookId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberSize)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberSize)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LetterSize)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LetterSize)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Material)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Material)
+        </dd>
+
+    </dl>
+</div>
+<p>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.HookId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+</p>

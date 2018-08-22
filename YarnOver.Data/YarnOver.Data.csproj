@@ -71,7 +71,20 @@
     <Compile Include="Migrations\201808171529414_hook.Designer.cs">
       <DependentUpon>201808171529414_hook.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808211507562_add-migration project.cs" />
+    <Compile Include="Migrations\201808211507562_add-migration project.Designer.cs">
+      <DependentUpon>201808211507562_add-migration project.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808211800049_update.cs" />
+    <Compile Include="Migrations\201808211800049_update.Designer.cs">
+      <DependentUpon>201808211800049_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808211811298_model.cs" />
+    <Compile Include="Migrations\201808211811298_model.Designer.cs">
+      <DependentUpon>201808211811298_model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Yarn.cs" />
   </ItemGroup>
@@ -91,6 +104,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808171529414_hook.resx">
       <DependentUpon>201808171529414_hook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808211507562_add-migration project.resx">
+      <DependentUpon>201808211507562_add-migration project.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808211800049_update.resx">
+      <DependentUpon>201808211800049_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808211811298_model.resx">
+      <DependentUpon>201808211811298_model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

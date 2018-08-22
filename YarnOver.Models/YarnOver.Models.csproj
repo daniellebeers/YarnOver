@@ -54,7 +54,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HookCreate.cs" />
+    <Compile Include="HookDetail.cs" />
+    <Compile Include="HookEdit.cs" />
     <Compile Include="HookListItem.cs" />
+    <Compile Include="ProjectCreate.cs" />
+    <Compile Include="ProjectDetail.cs" />
+    <Compile Include="ProjectEdit.cs" />
+    <Compile Include="ProjectListItem.cs" />
     <Compile Include="YarnCreate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="YarnDetail.cs" />

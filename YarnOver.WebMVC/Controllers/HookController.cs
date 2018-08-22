@@ -32,23 +32,95 @@ namespace YarnOver.WebMVC.Controllers
         public ActionResult Create(HookCreate model)
         {
             if (ModelState.IsValid) return View(model);
-            
+
             var service = CreateHookService();
 
             if (service.CreateHook(model))
             {
+                TempData["SaveResult"] = "Your hook was created.";
                 return RedirectToAction("Index");
             };
 
             return View(model);
         }
 
-        private HookService CreateHookService()
+            private HookService CreateHookService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new HookService(userId);
             return service;
         }
+
+        public ActionResult Edit(int id)
+        {
+            var service = CreateHookService();
+            var detail = service.GetHookById(id);
+            var model =
+                new HookEdit
+                {
+                    HookId = detail.HookId,
+                    NumberSize = detail.NumberSize,
+                    LetterSize = detail.LetterSize,
+                    Material = detail.Material,
+                };
+            return View(model);
+        }
+
+        public ActionResult Details(int id)
+        {
+            var svc = CreateHookService();
+            var model = svc.GetHookById(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, HookEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.HookId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateHookService();
+
+            if (service.UpdateHook(model))
+            {
+                TempData["SaveResult"] = "Your hook was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your hook could not be updated.");
+            return View(model);
+        }
+
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateHookService();
+            var model = svc.GetHookById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateHookService();
+
+            service.DeleteHook(id);
+
+            TempData["SaveResult"] = "Your note was deleted";
+
+            return RedirectToAction("Index");
+        }
+
+
     }
 }
     

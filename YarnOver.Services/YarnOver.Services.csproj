@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HookService.cs" />
+    <Compile Include="ProjectService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="YarnService.cs" />
   </ItemGroup>
@@ -62,6 +63,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\YarnOver.Contracts\YarnOver.Contracts.csproj">
+      <Project>{42C0785D-1833-43A2-AA97-17F10A5947DF}</Project>
+      <Name>YarnOver.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\YarnOver.Data\YarnOver.Data.csproj">
       <Project>{34b554c6-a9a6-4598-9003-c4650727c5d3}</Project>
       <Name>YarnOver.Data</Name>

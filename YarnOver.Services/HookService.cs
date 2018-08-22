@@ -36,29 +36,84 @@ namespace YarnOver.Services
             }
         }
 
-            public IEnumerable<HookListItem> GetHooks()
+        public IEnumerable<HookListItem> GetHooks()
+        {
+            using (var ctx = new ApplicationDbContext())
             {
-                using (var ctx = new ApplicationDbContext())
-                {
-                    var query =
-                        ctx
-                            .Hooks
-                            .Where(e => e.UserId == _userId)
-                            .Select(
-                                e =>
-                                    new HookListItem
-                                    {
-                                        HookId = e.HookId,
-                                        NumberSize = e.NumberSize,
-                                        LetterSize = e.LetterSize,
-                                        Material = e.Material
-                                    }
-                            );
+                var query =
+                    ctx
+                        .Hooks
+                        .Where(e => e.UserId == _userId)
+                        .Select(
+                            e =>
+                                new HookListItem
+                                {
+                                    HookId = e.HookId,
+                                    NumberSize = e.NumberSize,
+                                    LetterSize = e.LetterSize,
+                                    Material = e.Material
+                                }
+                        );
 
-                    return query.ToArray();
-                }
+                return query.ToArray();
             }
-        
+        }
+
+        public HookDetail GetHookById(int noteId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Hooks
+                        .Single(e => e.HookId == noteId && e.UserId == _userId);
+                return
+                    new HookDetail
+                    {
+
+                        HookId = entity.HookId,
+                        NumberSize = entity.NumberSize,
+                        LetterSize = entity.LetterSize,
+                        Material = entity.Material,
+
+                    };
+            }
+        }
+        public bool UpdateHook(HookEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Hooks
+                        .Single(e => e.HookId == model.HookId && e.UserId == _userId);
+
+                entity.HookId = model.HookId;
+                entity.NumberSize = model.NumberSize;
+                entity.LetterSize = model.LetterSize;
+                entity.Material = model.Material;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteHook(int hookId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Hooks
+                        .Single(e => e.HookId == hookId && e.UserId == _userId);
+
+                ctx.Hooks.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
 
     }
 }
+
+
+    

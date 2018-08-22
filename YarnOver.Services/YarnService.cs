@@ -6,10 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using YarnOver.Data;
 using YarnOver.Models;
+using YarnOver.Contracts;
 
 namespace YarnOver.Services
 {
-    public class YarnService
+    public class YarnService : IYarnService
     {
         private readonly Guid _userId;
 
@@ -122,7 +123,9 @@ namespace YarnOver.Services
 
 
             }
-        }
+
+        
+    }
 
     }
 
