@@ -15,7 +15,10 @@ namespace YarnOver.WebMVC.Controllers
         // GET: Project
         public ActionResult Index()
         {
-            var model = new ProjectListItem[0];
+            var ownerId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ProjectService(ownerId);
+            var model = service.GetProjects();
+
             return View(model);
         }
 
@@ -23,6 +26,7 @@ namespace YarnOver.WebMVC.Controllers
         {
             return View();
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -43,12 +47,21 @@ namespace YarnOver.WebMVC.Controllers
             return View(model);
         }
 
+          
+
         public ActionResult Details(int id)
         {
             var svc = CreateProjectService();
             var model = svc.GetProjectById(id);
 
             return View(model);
+        }
+
+        private ProjectService CreateProjectService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ProjectService(userId);
+            return service;
         }
 
         public ActionResult Edit(int id)
@@ -69,10 +82,14 @@ namespace YarnOver.WebMVC.Controllers
             return View(model);
         }
 
+
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, ProjectEdit model)
         {
+            return View();
+
             if (!ModelState.IsValid) return View(model);
 
             if (model.ProjectId != id)
@@ -94,22 +111,14 @@ namespace YarnOver.WebMVC.Controllers
             return View(model);
         }
 
-        [ActionName("Delete")]
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int YarnId)
         {
             var svc = CreateProjectService();
-            var model = svc.GetProjectById(id);
+            var model = svc.GetProjectById(YarnId);
 
             return View(model);
         }
-
-        public ProjectService CreateProjectService()
-        {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new ProjectService(userId);
-            return service;
-        }
-
+        
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]

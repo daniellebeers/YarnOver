@@ -15,8 +15,8 @@ namespace YarnOver.WebMVC.Controllers
         // GET: Hook
         public ActionResult Index()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new HookService(userId);
+            var ownerId = Guid.Parse(User.Identity.GetUserId());
+            var service = new HookService(ownerId);
             var model = service.GetHooks();
 
             return View(model);
@@ -24,6 +24,7 @@ namespace YarnOver.WebMVC.Controllers
 
         public ActionResult Create()
         {
+            
             return View();
         }
 
@@ -31,20 +32,29 @@ namespace YarnOver.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(HookCreate model)
         {
-            if (ModelState.IsValid) return View(model);
+            if (!ModelState.IsValid) return View(model);
 
             var service = CreateHookService();
 
             if (service.CreateHook(model))
             {
-                TempData["SaveResult"] = "Your hook was created.";
+                TempData["SaveResult"] = "Your hook was added.";
                 return RedirectToAction("Index");
             };
+
+            ModelState.AddModelError("", "Hook could not be added.");
+            return View(model);
+        }
+
+        public ActionResult Details(int id)
+        {
+            var svc = CreateHookService();
+            var model = svc.GetHookById(id);
 
             return View(model);
         }
 
-            private HookService CreateHookService()
+        private HookService CreateHookService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new HookService(userId);
@@ -66,17 +76,13 @@ namespace YarnOver.WebMVC.Controllers
             return View(model);
         }
 
-        public ActionResult Details(int id)
-        {
-            var svc = CreateHookService();
-            var model = svc.GetHookById(id);
-            return View(model);
-        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, HookEdit model)
         {
+            return View();
+
             if (!ModelState.IsValid) return View(model);
 
             if (model.HookId != id)
@@ -97,11 +103,11 @@ namespace YarnOver.WebMVC.Controllers
             return View(model);
         }
 
-        [ActionName("Delete")]
-        public ActionResult Delete(int id)
+        
+        public ActionResult Delete(int HookId)
         {
             var svc = CreateHookService();
-            var model = svc.GetHookById(id);
+            var model = svc.GetHookById(HookId);
 
             return View(model);
         }

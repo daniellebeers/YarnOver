@@ -12,8 +12,9 @@ namespace YarnOver.Models
         public string ProjectName { get; set; }
         public string PatternLocation { get; set; }
         public string ProjectYarn { get; set; }
-
-        public override string ToString() => ProjectName;
         
+
+        public override string ToString() => $"[{ProjectId}] {ProjectName}";
     }
 }
+

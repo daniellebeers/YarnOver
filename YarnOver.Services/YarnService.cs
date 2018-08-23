@@ -29,6 +29,7 @@ namespace YarnOver.Services
                     Manufacturer = model.Manufacturer,
                     TotalYardage = model.TotalYardage,
                     TotalWeight = model.TotalWeight,
+                    Fiber = model.Fiber,
                     WherePurchased = model.WherePurchased,
                 };
             using (var ctx = new ApplicationDbContext())

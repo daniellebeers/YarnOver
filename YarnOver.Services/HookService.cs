@@ -41,32 +41,33 @@ namespace YarnOver.Services
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
-                    ctx
-                        .Hooks
-                        .Where(e => e.UserId == _userId)
-                        .Select(
-                            e =>
-                                new HookListItem
-                                {
-                                    HookId = e.HookId,
-                                    NumberSize = e.NumberSize,
-                                    LetterSize = e.LetterSize,
-                                    Material = e.Material
-                                }
-                        );
+                 ctx
+                .Hooks
+                .Where(e => e.UserId == _userId)
+                .Select(
+             e =>
+            new HookListItem
+            {
+                HookId = e.HookId,
+                //           NumberSize = e.NumberSize,
+                LetterSize = e.LetterSize,
+                //             Material = e.Material
+            }
+                 );
 
                 return query.ToArray();
             }
         }
 
-        public HookDetail GetHookById(int noteId)
+
+        public HookDetail GetHookById(int HookId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .Hooks
-                        .Single(e => e.HookId == noteId && e.UserId == _userId);
+                        .Single(e => e.HookId == HookId && e.UserId == _userId);
                 return
                     new HookDetail
                     {

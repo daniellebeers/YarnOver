@@ -17,8 +17,7 @@ namespace YarnOver.Models
         public string Fiber { get; set; }
         public string WherePurchased { get; set; }
 
-        [MaxLength(8000)]
-        public string Content { get; set; }
+
 
         public override string ToString() => Color;
 

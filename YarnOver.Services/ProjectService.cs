@@ -29,11 +29,33 @@ namespace YarnOver.Services
                     PatternLocation = model.PatternLocation,
                     ProjectYarn = model.ProjectYarn,
                 };
-
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Projects.Add(entity);
                 return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public IEnumerable<ProjectListItem> GetProjects()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Projects
+                        .Where(e => e.UserId == _userId)
+                        .Select(
+                         e =>
+                             new ProjectListItem
+                             {
+                                ProjectId = e.ProjectId,
+                                 ProjectName = e.ProjectName,
+                                 PatternLocation = e.PatternLocation,
+                                 ProjectYarn = e.ProjectYarn,
+                             }
+                         );
+
+                return query.ToArray();
             }
         }
 

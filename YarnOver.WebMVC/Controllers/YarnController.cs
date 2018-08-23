@@ -44,7 +44,6 @@ namespace YarnOver.WebMVC.Controllers
             };
 
             ModelState.AddModelError("", "Yarn could not be added.");
-
             return View(model);
         }
 
@@ -95,6 +94,7 @@ namespace YarnOver.WebMVC.Controllers
                 ModelState.AddModelError("", "Id Mismatch");
                 return View(model);
             }
+
             var service = CreateYarnService();
 
             if (service.UpdateYarn(model))
