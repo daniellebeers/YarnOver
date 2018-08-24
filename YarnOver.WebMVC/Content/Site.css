@@ -16,6 +16,11 @@
     white-space: normal;
 }
 
+.jumbotron {
+    background-image: url('Assests/sweaters.jpg');
+    background-size: cover;
+}
+
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
