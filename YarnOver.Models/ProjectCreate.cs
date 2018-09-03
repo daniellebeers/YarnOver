@@ -8,7 +8,7 @@ namespace YarnOver.Models
 {
     public class ProjectCreate
     {
-        public int ProjectId { get; set; }
+      //  public int ProjectId { get; set; }
         public Guid UserId { get; set; }
         public string ProjectName { get; set; }
         public string PatternLocation { get; set; }

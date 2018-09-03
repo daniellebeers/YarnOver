@@ -8,7 +8,7 @@ namespace YarnOver.Models
 {
     public class HookDetail
     {
-        public int HookId { get; set; }
+        //public int HookId { get; set; }
         public Guid UserId { get; set; }
         public int NumberSize { get; set; }
         public string LetterSize { get; set; }

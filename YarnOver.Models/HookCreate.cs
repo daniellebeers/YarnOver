@@ -10,7 +10,7 @@ namespace YarnOver.Models
     public class HookCreate
     {
         [Required]
-        public int HookId { get; set; }
+        //public int HookId { get; set; }
         public int NumberSize { get; set; }
         public string LetterSize { get; set; }
         public string Material { get; set; }

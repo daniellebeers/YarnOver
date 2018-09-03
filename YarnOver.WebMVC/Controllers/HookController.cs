@@ -12,7 +12,7 @@ namespace YarnOver.WebMVC.Controllers
     [Authorize]
     public class HookController : Controller
     {
-        // GET: Hook
+        
         public ActionResult Index()
         {
             var ownerId = Guid.Parse(User.Identity.GetUserId());
@@ -68,7 +68,7 @@ namespace YarnOver.WebMVC.Controllers
             var model =
                 new HookEdit
                 {
-                    HookId = detail.HookId,
+                   // HookId = detail.HookId,
                     NumberSize = detail.NumberSize,
                     LetterSize = detail.LetterSize,
                     Material = detail.Material,

@@ -108,8 +108,8 @@ namespace YarnOver.Services
             }
         }
 
-            public bool DeleteYarn(int yarnId)
-            {
+        public bool DeleteYarn(int yarnId)
+        {
                 using (var ctx = new ApplicationDbContext())
                 {
                     var entity =
@@ -121,12 +121,9 @@ namespace YarnOver.Services
 
                     return ctx.SaveChanges() == 1;
                 }
-
-
-            }
+        }
 
         
     }
-
-    }
+ }
 

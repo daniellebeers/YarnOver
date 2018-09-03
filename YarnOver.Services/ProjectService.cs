@@ -24,7 +24,7 @@ namespace YarnOver.Services
                 new Project()
                 {
                     UserId = _userId,
-                    ProjectId = model.ProjectId,
+                   // ProjectId = model.ProjectId,
                     ProjectName = model.ProjectName,
                     PatternLocation = model.PatternLocation,
                     ProjectYarn = model.ProjectYarn,
@@ -101,14 +101,14 @@ namespace YarnOver.Services
             }
         }
 
-        public bool DeleteProject(int noteId)
+        public bool DeleteProject(int projectId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .Projects
-                        .Single(e => e.ProjectId == noteId && e.UserId == _userId);
+                        .Single(e => e.ProjectId == projectId && e.UserId == _userId);
 
                 ctx.Projects.Remove(entity);
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,9 +14,8 @@ namespace YarnOver.Models
         public string LetterSize { get; set; }
         public string Material { get; set; }
 
-        public override string ToString()
-        {
-            return base.ToString();
-        }
+        [Display(Name = "Created")]
+
+        public override string ToString() => $"[{HookId}] {NumberSize}";
     }
 }

@@ -111,10 +111,10 @@ namespace YarnOver.WebMVC.Controllers
             return View(model);
         }
 
-        public ActionResult Delete(int YarnId)
+        public ActionResult Delete(int ProjectId)
         {
             var svc = CreateProjectService();
-            var model = svc.GetProjectById(YarnId);
+            var model = svc.GetProjectById(ProjectId);
 
             return View(model);
         }

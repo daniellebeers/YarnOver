@@ -20,44 +20,43 @@
         @TempData["SaveResult"]
     </div>
 }
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.HookId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumberSize)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LetterSize)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Material)
-        </th>
-        <th></th>
-    </tr>
 
-    @foreach (var item in Model)
-    {
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.HookId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NumberSize)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LetterSize)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Material)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.HookId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.HookId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.HookId })
-            </td>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.NumberSize)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LetterSize)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Material)
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HookId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberSize)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LetterSize)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Material)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.HookId }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.HookId }) |
+                    @Html.ActionLink("Delete", "Delete", new {id=item.HookId})
+                </td>
+            </tr>
+        }
+
+    </table>

@@ -23,10 +23,10 @@ namespace YarnOver.Services
             var entity =
                 new Hook()
                 {
-                    HookId = model.HookId,
+                    //HookId = model.HookId,
                     NumberSize = model.NumberSize,
                     LetterSize = model.LetterSize,
-                    Material = model.Material
+                    Material = model.Material,
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -46,13 +46,14 @@ namespace YarnOver.Services
                 .Where(e => e.UserId == _userId)
                 .Select(
              e =>
-            new HookListItem
-            {
-                HookId = e.HookId,
-                //           NumberSize = e.NumberSize,
-                LetterSize = e.LetterSize,
-                //             Material = e.Material
-            }
+
+                new HookListItem
+                    {
+                        HookId = e.HookId,
+                        NumberSize = e.NumberSize,
+                        LetterSize = e.LetterSize,
+                        Material = e.Material
+                    }
                  );
 
                 return query.ToArray();
@@ -60,19 +61,19 @@ namespace YarnOver.Services
         }
 
 
-        public HookDetail GetHookById(int HookId)
+        public HookDetail GetHookById(int hookId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .Hooks
-                        .Single(e => e.HookId == HookId && e.UserId == _userId);
+                        .Single(e => e.HookId == hookId && e.UserId == _userId);
                 return
                     new HookDetail
                     {
 
-                        HookId = entity.HookId,
+                        //HookId = entity.HookId,
                         NumberSize = entity.NumberSize,
                         LetterSize = entity.LetterSize,
                         Material = entity.Material,

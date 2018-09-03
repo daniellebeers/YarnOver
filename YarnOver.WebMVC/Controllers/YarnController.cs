@@ -126,7 +126,7 @@ namespace YarnOver.WebMVC.Controllers
 
             service.DeleteYarn(id);
 
-            TempData["SaveResult"] = "Your note was deleted";
+            TempData["SaveResult"] = "Your yarn was deleted";
 
             return RedirectToAction("Index");
         }
