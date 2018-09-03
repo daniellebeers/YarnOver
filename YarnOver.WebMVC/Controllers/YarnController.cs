@@ -47,19 +47,20 @@ namespace YarnOver.WebMVC.Controllers
             return View(model);
         }
 
+        private YarnService CreateYarnService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new YarnService(userId);
+            return service;
+        }
+
+
         public ActionResult Details(int id)
         {
             var svc = CreateYarnService();
             var model = svc.GetYarnById(id);
 
             return View(model);
-        }
-
-        private YarnService CreateYarnService()
-        {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new YarnService(userId);
-            return service;
         }
 
         public ActionResult Edit(int id)
@@ -109,10 +110,10 @@ namespace YarnOver.WebMVC.Controllers
 
        
 
-        public ActionResult Delete(int YarnId)
+        public ActionResult Delete(int id)
         {
             var svc = CreateYarnService();
-            var model = svc.GetYarnById(YarnId);
+            var model = svc.GetYarnById(id);
 
             return View(model);
         }

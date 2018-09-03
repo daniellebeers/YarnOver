@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YarnOver.Data;
 using YarnOver.Models;
 
 namespace YarnOver.Services
@@ -45,9 +44,8 @@ namespace YarnOver.Services
                 .Hooks
                 .Where(e => e.UserId == _userId)
                 .Select(
-             e =>
-
-                new HookListItem
+                 e =>
+                    new HookListItem
                     {
                         HookId = e.HookId,
                         NumberSize = e.NumberSize,
@@ -72,7 +70,6 @@ namespace YarnOver.Services
                 return
                     new HookDetail
                     {
-
                         //HookId = entity.HookId,
                         NumberSize = entity.NumberSize,
                         LetterSize = entity.LetterSize,

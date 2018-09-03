@@ -16,6 +16,7 @@ namespace YarnOver.Models
         public int TotalWeight { get; set; }
         public string Fiber { get; set; }
         public string WherePurchased { get; set; }
+
         public override string ToString() => $"[{YarnId}] {Color}";
     }
 }

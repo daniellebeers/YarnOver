@@ -111,14 +111,14 @@ namespace YarnOver.WebMVC.Controllers
             return View(model);
         }
 
-        public ActionResult Delete(int ProjectId)
+        public ActionResult Delete(int id)
         {
             var svc = CreateProjectService();
-            var model = svc.GetProjectById(ProjectId);
+            var model = svc.GetProjectById(id);
 
             return View(model);
         }
-        
+
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -132,7 +132,6 @@ namespace YarnOver.WebMVC.Controllers
 
             return RedirectToAction("Index");
         }
-
 
     }
 }

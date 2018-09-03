@@ -103,11 +103,11 @@ namespace YarnOver.WebMVC.Controllers
             return View(model);
         }
 
-        
-        public ActionResult Delete(int HookId)
+
+        public ActionResult Delete(int id)
         {
             var svc = CreateHookService();
-            var model = svc.GetHookById(HookId);
+            var model = svc.GetHookById(id);
 
             return View(model);
         }
@@ -121,7 +121,7 @@ namespace YarnOver.WebMVC.Controllers
 
             service.DeleteHook(id);
 
-            TempData["SaveResult"] = "Your note was deleted";
+            TempData["SaveResult"] = "Your hook was deleted";
 
             return RedirectToAction("Index");
         }
